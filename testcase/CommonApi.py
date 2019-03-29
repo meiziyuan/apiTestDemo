@@ -1,6 +1,6 @@
 import requests
 from common.excelOperation import excelAPI
-from common.ConfOperation import getConfData
+from common.confOperation import getConfData
 import unittest
 class api(unittest.TestCase):
 
