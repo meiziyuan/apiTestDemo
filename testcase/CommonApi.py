@@ -16,8 +16,10 @@ class api(unittest.TestCase):
 
     def setElements(self, apisheetname, caseid):
         info = self.xslData.getCaseData(caseid)
+        print(info)
         params = dict(eval(getConfData("httpParams", "dataCommon")))
-        params.update(info['params'])
+        print(params)
+        params.update(info["params"])
         self.apisheetName = apisheetname
         self.apiname = info["apiName"]
         self.caseid =caseid
@@ -25,6 +27,7 @@ class api(unittest.TestCase):
         self.url = info["url"]
         self.method = info["method"]
         self.param = params
+        print(self.param)
 
     def sendRequest(self, caseid):
         self.setElements(self.__class__.__name__, caseid)

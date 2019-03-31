@@ -33,6 +33,32 @@ class CreateRoomApi(api):
         self.assertEqual(0, res['allRows'])
         self.assertEqual('房间名称不能重名，请重新输入', res['data'])
 
+    def test_getroomlist_4(self):
+        '''输入含特殊字符房间名'''
+
+        caseid = '004'
+        res = super(CreateRoomApi, self).sendRequest(caseid)
+        self.assertEqual(20023, res['errorCode'])
+        self.assertEqual(0, res['allRows'])
+        self.assertEqual('房间名称不能重名，请重新输入', res['data'])
+
+    def test_getroomlist_5(self):
+        '''输入字符超出长度'''
+
+        caseid = '005'
+        res = super(CreateRoomApi, self).sendRequest(caseid)
+        self.assertEqual(20023, res['errorCode'])
+        self.assertEqual(0, res['allRows'])
+        self.assertEqual('房间名称不能重名，请重新输入', res['data'])
+
+    def test_getroomlist_6(self):
+        '''创建房间数超过20个'''
+
+        caseid = '006'
+        res = super(CreateRoomApi, self).sendRequest(caseid)
+        self.assertEqual(20023, res['errorCode'])
+        self.assertEqual(0, res['allRows'])
+        self.assertEqual('房间名称不能重名，请重新输入', res['data'])
 
 if __name__ == "__main__":
     unittest.main()

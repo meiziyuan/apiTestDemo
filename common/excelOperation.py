@@ -33,8 +33,8 @@ class excelAPI():
 
 
 if __name__ == "__main__":
-    dd = excelAPI('GetRoomListApi')
+    dd = excelAPI('CreateRoomApi')
     print(dd.getCaseData('001'))
-    aa = dd.getCaseData('007')['params']
+    aa = dd.getCaseData('001')['params']
     dd.closeXsl()
     print(aa, type(aa))

@@ -8,10 +8,10 @@ class GetRoomListApi(api):
     def test_getroomlist_1(self):
         '''正常获取房间列表'''
 
-        caseid ='007'
+        caseid ='001'
         res = super(GetRoomListApi, self).sendRequest(caseid)
         self.assertEqual(0, res['errorCode'])
-        self.assertEqual(3, res['allRows'])
+        self.assertTrue(res['allRows'] > 0)
 
     def test_getroomlist_2(self):
         '''token过期获取'''
